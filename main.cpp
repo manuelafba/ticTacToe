@@ -1,5 +1,4 @@
 #include <iostream>
-// #include <stdlib.h>
 using namespace std;
 
 void inicializarJogo();
@@ -24,7 +23,7 @@ void menu() {
             break;
         }
     }
-    cout << "Até a próxima! :D" << endl;
+    cout << "Até a próxima! :D";
 }
 
 void inicializarTabuleiro(char tabuleiro[3][3]) {
@@ -44,10 +43,15 @@ void exibirTabuleiro(char tabuleiro[3][3]) {
 
     for (linha = 0; linha < 3; linha++){
         for (coluna = 0; coluna <3; coluna++){
-            cout << tabuleiro[linha][coluna];
+            cout << " " << tabuleiro[linha][coluna] << " ";
+            if (coluna < 2) {
+                cout << "|"; 
+            }
         }
-
         cout << endl;
+        if (linha < 2) {
+            cout << "---+---+---" << endl; 
+        }
     }
 }
 
@@ -86,11 +90,13 @@ bool verificarColunas (char tabuleiro[3][3]) {
 bool verificarDiagonais (char tabuleiro[3][3]) {
     bool vencedor = false;
 
-    if (tabuleiro[0][0] == 'X' && tabuleiro[1][1] == tabuleiro[0][0] && tabuleiro[2][2] == tabuleiro[1][1]){
+    if ((tabuleiro[0][0] == 'X' && tabuleiro[1][1] == tabuleiro[0][0] && tabuleiro[2][2] == tabuleiro[1][1]) ||
+        (tabuleiro[0][2] == 'X' && tabuleiro[1][1] == tabuleiro[0][2] && tabuleiro[2][0] == tabuleiro[1][1])) {
         cout << "O jogador 1 venceu!" << endl;
         vencedor = true;
     }
-    else if (tabuleiro[0][0] == 'O' && tabuleiro[1][1] == tabuleiro[0][0] && tabuleiro[2][2] == tabuleiro[1][1]){
+    else if ((tabuleiro[0][0] == 'O' && tabuleiro[1][1] == tabuleiro[0][0] && tabuleiro[2][2] == tabuleiro[1][1]) ||
+             (tabuleiro[0][2] == 'O' && tabuleiro[1][1] == tabuleiro[0][2] && tabuleiro[2][0] == tabuleiro[1][1])) {
         cout << "O jogador 2 venceu!" << endl;
         vencedor = true;
     }
@@ -120,7 +126,7 @@ void inicializarJogo() {
         cout << "Rodada: " << rodada << endl;
 
         if (vezJogador == 1) {
-            cout << "É a vez de " << jogador1 << "(X)" << endl;
+            cout << "É a vez de " << jogador1 << " (X)" << endl;
             cout << "Digite a linha: " << endl;
             cin >> posicaoLinha;
             posicaoLinha = posicaoLinha - 1;
@@ -138,7 +144,7 @@ void inicializarJogo() {
             }
 
         } else {
-            cout << "É a vez de " << jogador2 << "(O)" << endl;
+            cout << "É a vez de " << jogador2 << " (O)" << endl;
             cout << "Digite a linha: " << endl;
             cin >> posicaoLinha;
             posicaoLinha = posicaoLinha - 1;
