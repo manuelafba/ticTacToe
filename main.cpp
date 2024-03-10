@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+void inicializarJogo();
+
 void menu() {
     int opcao = 0;
 
