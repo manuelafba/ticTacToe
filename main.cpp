@@ -7,13 +7,13 @@ void menu() {
     int opcao = 0;
 
     while (opcao != 2) {
-        cout << "Bem-vindo ao Jogo da Velha! Por favor, digite o número da opção desejada: " << endl;
-        cout << "1 - Jogar" << endl;
-        cout << "2 - Sair" << endl;
+        cout << "Bem-vindo ao Jogo da Velha! Por favor, digite o numero da opcao desejada: " << endl;
+        cout << "[1] Jogar" << endl;
+        cout << "[2] Sair" << endl;
         cin >> opcao;
 
         if (opcao < 0 || opcao > 2) {
-            cout << "Opção inválida. Tente novamente." << endl;
+            cout << "Opção invalida. Tente novamente." << endl;
             opcao = 0;
         }
         
@@ -23,7 +23,7 @@ void menu() {
             break;
         }
     }
-    cout << "Até a próxima! :D";
+    cout << "Ate a proxima! :D";
 }
 
 void inicializarTabuleiro(char tabuleiro[3][3]) {
@@ -107,7 +107,7 @@ void inicializarJogo() {
 
     int posicaoColuna, posicaoLinha;
     int vezJogador = 1;
-    int rodada = 0;
+    int rodada = 1;
     char tabuleiro[3][3];
     char jogador1[30];
     char jogador2[30];
@@ -126,7 +126,7 @@ void inicializarJogo() {
         cout << "Rodada: " << rodada << endl;
 
         if (vezJogador == 1) {
-            cout << "É a vez de " << jogador1 << " (X)" << endl;
+            cout << "Vez de " << jogador1 << " (X)" << endl;
             cout << "Digite a linha: " << endl;
             cin >> posicaoLinha;
             posicaoLinha = posicaoLinha - 1;
@@ -144,7 +144,7 @@ void inicializarJogo() {
             }
 
         } else {
-            cout << "É a vez de " << jogador2 << " (O)" << endl;
+            cout << "Vez de " << jogador2 << " (O)" << endl;
             cout << "Digite a linha: " << endl;
             cin >> posicaoLinha;
             posicaoLinha = posicaoLinha - 1;
@@ -153,7 +153,7 @@ void inicializarJogo() {
             posicaoColuna = posicaoColuna - 1;
 
             if (tabuleiro[posicaoLinha][posicaoColuna] == 'X' || tabuleiro[posicaoLinha][posicaoColuna] == 'O') {
-                cout << "Jogada inválida!" << endl;
+                cout << "Jogada invalida!" << endl;
                 continue;
 
             } else {
@@ -177,12 +177,13 @@ void inicializarJogo() {
     if (resposta == 'S') {
         menu();
     } else {
-        cout << "Até a próxima! :D" << endl;
+        cout << "Ate a proxima! :D" << endl;
     }
     
 }
 
 int main() {
     menu();
+    
     return 0;
 }
